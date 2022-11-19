@@ -1,11 +1,11 @@
-import { JobItem } from "./contact";
-import { Contact } from "../../redux/contactsSlice";
+import { JobItem } from "./jobItem";
+import { Job } from "../../redux/jobsSlice";
 
 interface Iprops {
-  jobsList: Contact[];
+  jobsList: Job[];
 }
 
-export const ContactList: React.FC<Iprops> = ({ jobsList }) => {
+export const JobList: React.FC<Iprops> = ({ jobsList }) => {
   return (
     <ul>
       {jobsList.map((job) => {

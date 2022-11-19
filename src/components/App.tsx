@@ -1,23 +1,19 @@
-import React, { useEffect } from "react";
-import { useAppSelector, useAppDispatch } from "../redux/hooks";
-import { ContactList } from "./phonebook/contactList";
-import { fetchJobs } from "../redux/operation";
+import { lazy } from "react";
+import { Route, Routes } from "react-router-dom";
+import { SharedLayout } from "./SharedLayout";
 
-export const App: React.FC = () => {
-  const { jobsList, isLoading, error } = useAppSelector((state) => state.jobs);
-  const dispatch = useAppDispatch();
+const JobBoard = lazy(() => import("../pages/JobBoard"));
+const JobDetail = lazy(() => import("../pages/JobDetail"));
+const NotFound = lazy(() => import("../components/notFound"));
 
-  useEffect(() => {
-    dispatch(fetchJobs());
-  }, [dispatch]);
-
-  console.log(jobsList);
-
+export const App = () => {
   return (
-    <div>
-      {isLoading && <b>Loading jobs...</b>}
-      {error && <b>{error}</b>}
-      <ContactList jobsList={jobsList} />;
-    </div>
+    <Routes>
+      <Route path="/" element={<SharedLayout />}>
+        <Route index element={<JobBoard />} />
+        <Route path="/job/:jobBoardId" element={<JobDetail />}></Route>
+        <Route path="*" element={<NotFound />} />
+      </Route>
+    </Routes>
   );
 };

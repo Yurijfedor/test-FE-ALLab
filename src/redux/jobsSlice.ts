@@ -1,7 +1,7 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 import { RootState } from "./store";
 
-export interface Contact {
+export interface Job {
   readonly id: string;
   name: string;
   phone: string;

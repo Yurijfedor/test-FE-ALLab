@@ -16,11 +16,15 @@ const isFavoriteSlice = createSlice({
   reducers: {
     initFavoriteState(state, action: PayloadAction<Job[]>) {
       action.payload.forEach((element) => {
-        const initialState = {
-          isFavorite: false,
-          id: element.id,
-        };
-        state.push(initialState);
+        const isAvailable = state.find(({ id }) => id === element.id);
+        if (!isAvailable) {
+          const initialState = {
+            isFavorite: false,
+            id: element.id,
+          };
+          state.push(initialState);
+        }
+        return;
       });
     },
     toggleFavorite(state, action: PayloadAction<string>) {

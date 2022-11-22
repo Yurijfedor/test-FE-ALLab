@@ -48,7 +48,7 @@ const JobDetail: React.FC = () => {
   } = jobItem;
   return (
     <Container>
-      <section className="max-w-detail ml-80">
+      <section className="max-w-[774px] bg-white-accent">
         <Header id={id} />
         <div className="w-full h-[1px] bg-text-accent opacity-[0.13] mix-blend-normal"></div>
 

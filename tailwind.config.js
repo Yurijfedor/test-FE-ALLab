@@ -23,6 +23,7 @@ module.exports = {
       applayButton: ["12px", "16px"],
       h2: ["24px", "30px"],
       salary: ["20px", "25px"],
+      p2: ["16px", "25px"],
     },
     maxWidth: {
       detail: "774px",

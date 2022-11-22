@@ -43,9 +43,9 @@ export const AdditInfo: React.FC<IProps> = ({
           return (
             <li
               key={i}
-              className="w-[209px] h-[115px] bg-#25f5 overflow-hidden rounded-lg "
+              className="w-[209px] bg-#25f5 overflow-hidden bg-cover "
             >
-              <img src={el} alt={title} />
+              <img src={el} alt={title} className="rounded-lg " />
             </li>
           );
         })}

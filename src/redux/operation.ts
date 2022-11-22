@@ -17,6 +17,8 @@ export const fetchJobs = () => async (dispatch: any) => {
       "/data?access_token=wm3gg940gy0xek1ld98uaizhz83c6rh2sir9f9fu"
     );
     dispatch(initFavoriteState(response.data));
+    console.log(response);
+
     dispatch(fetchingSuccess(response.data));
   } catch (error: any) {
     dispatch(fetchingError(error.message));

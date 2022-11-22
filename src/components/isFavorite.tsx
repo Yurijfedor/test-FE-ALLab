@@ -21,14 +21,14 @@ export const IsFavorite: React.FC<IProps> = ({ id }) => {
   return FavoriteState?.isFavorite === true ? (
     <BsFillBookmarkFill
       fill="yellow"
-      stroke="black"
+      stroke="#70778B"
       strokeWidth="1px"
       onClick={toggleIsFavoriteState}
     />
   ) : (
     <BsFillBookmarkFill
       fill="white"
-      stroke="black"
+      stroke="#70778B"
       strokeWidth="1px"
       onClick={toggleIsFavoriteState}
     />

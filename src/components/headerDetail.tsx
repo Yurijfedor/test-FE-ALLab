@@ -18,30 +18,39 @@ import {
   WhatsappShareButton,
   WhatsappIcon,
 } from "react-share";
-// import { style } from "styled-system";
+
 interface IProps {
   id: string;
 }
 export const Header: React.FC<IProps> = ({ id }) => {
-  const handleClick = () => {
-    const shareList = document.querySelector("#share");
-    // console.log(shareList?.att);
+  const shareList = document.querySelector("#share");
+  const onRemoveHidden = () => {
+    shareList?.classList.remove("hidden");
   };
+  const onAddHidden = () => {
+    shareList?.classList.add("hidden");
+  };
+
   return (
-    <header>
-      <h2>Job Details</h2>
-      <div>
-        <IsFavorite id={id} />
-        <p>Save to my list</p>
-        <BsFillShareFill onClick={handleClick} />
-        <p>Share</p>
+    <header className="flex justify-between text-text-accent mb-[9px] ">
+      <h2 className="font-bold text-logo">Job Details</h2>
+      <div className="flex gap-6">
+        <p className="text-lg flex items-center gap-2 cursor-pointer ">
+          <IsFavorite id={id} />
+          Save to my list
+        </p>
+
+        <p
+          className="relative flex items-center gap-2 cursor-pointer text-lg hover:text-black"
+          onClick={onRemoveHidden}
+        >
+          <BsFillShareFill fill="#70778B" />
+          Share
+        </p>
         <div
           id="share"
-          style={
-            {
-              // visibility: "hidden",
-            }
-          }
+          className="hidden absolute top-[50px]"
+          onClick={onAddHidden}
         >
           <EmailShareButton url="shareUrl">
             <EmailIcon size={40} round={true} />

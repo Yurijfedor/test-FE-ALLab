@@ -21,15 +21,23 @@ export const Description: React.FC<IProps> = ({
   };
   return (
     <>
-      <div>
-        <h2>{title}</h2>
+      <div className="flex text-text-accent gap-[60px] mb-[7px]">
+        <h2 className="max-w-[501px] text-h2 font-bold tracking-[-0.75px]">
+          {title}
+        </h2>
         <div>
-          <p> {String.fromCharCode(8364) + " " + `${getSalary(salary)}`}</p>
-          <p>Brutto, per year</p>
+          <p className="text-salary tracking-[-0.625px]">
+            {String.fromCharCode(8364) + " " + `${getSalary(salary)}`}
+          </p>
+          <p className="text-lg font-normal tracking-[-0.5625px]">
+            Brutto, per year
+          </p>
         </div>
       </div>
       <PostedAt createdAt={postedDate} />
-      <p>{description}</p>
+      <p className="font-postedAt font-normal text-lg tracking-[-0.5625px] text-text-accent mb-[32px]">
+        {description}
+      </p>
     </>
   );
 };

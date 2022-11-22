@@ -1,15 +1,55 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 @import-normalize; /* bring in normalize.css styles */
+
+@font-face {
+  font-family: "ProximaNova-Bold";
+  src: local("ProximaNova-Bold"),
+    url("./fonts/ProximaNova-Bold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "ProximaNova-Light";
+  src: local("ProximaNova-Light"),
+    url("./fonts/ProximaNova-Light.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "ProximaNova-Regular";
+  src: local("ProximaNova-Regular"),
+    url("./fonts/ProximaNova-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "ProximaNova-SemiboldIt";
+  src: local("ProximaNova-SemiboldIt"),
+    url("./fonts/ProximaNova-SemiboldIt.ttf") format("truetype");
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: "ProximaNova-Bold", "ProximaNova-Light", "ProximaNova-Regular",
+    "ProximaNova-SemiboldIt", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+    "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
 }

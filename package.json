@@ -2,7 +2,7 @@
   "name": "test-fe-allab",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://yurijfedor.github.io/test-fe-allab/",
+  "homepage": "https://yurijfedor.github.io/test-fe-allab",
   "dependencies": {
     "@react-google-maps/api": "^2.17.0",
     "@reduxjs/toolkit": "^1.9.0",

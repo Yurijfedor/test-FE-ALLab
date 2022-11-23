@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunktest_fe_allab=self.webpackChunktest_fe_allab||[]).push([[993],{2993:function(e,t,s){s.r(t);var a=s(3329);t.default=function(){return(0,a.jsx)("div",{children:"Page doesn't exsist!"})}}}]);
+//# sourceMappingURL=993.c5988a59.chunk.js.map

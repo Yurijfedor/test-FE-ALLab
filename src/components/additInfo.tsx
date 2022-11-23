@@ -2,17 +2,10 @@ import { InfoItem } from "./infoJobItem";
 interface IProps {
   employmentType: string[];
   benefits: string[];
-  pictures: string[];
-  title: string;
 }
-export const AdditInfo: React.FC<IProps> = ({
-  employmentType,
-  benefits,
-  pictures,
-  title,
-}) => {
+export const AdditInfo: React.FC<IProps> = ({ employmentType, benefits }) => {
   return (
-    <>
+    <div className="order-2 2xl:order-1">
       <h2 className=" text-logo font-bold tracking-0.413333px text-text-accent w-full mb-[9px]">
         Additional info
       </h2>
@@ -33,23 +26,6 @@ export const AdditInfo: React.FC<IProps> = ({
           return <InfoItem key={el} item={el} isBenefits={true} />;
         })}
       </ul>
-      <h3 className=" text-logo font-bold tracking-0.413333px text-text-accent w-full mb-[9px]">
-        Attached images
-      </h3>
-      <div className="w-full h-[1px] bg-text-accent opacity-[0.13] mix-blend-normal mb-[21px]"></div>
-
-      <ul className="flex gap-[10px]">
-        {pictures.map((el: string, i: React.Key | null | undefined) => {
-          return (
-            <li
-              key={i}
-              className="w-[209px] bg-#25f5 overflow-hidden bg-cover "
-            >
-              <img src={el} alt={title} className="rounded-lg " />
-            </li>
-          );
-        })}
-      </ul>
-    </>
+    </div>
   );
 };

@@ -12,6 +12,7 @@ import { FiChevronLeft } from "react-icons/fi";
 import { Map } from "../components/map";
 import { Container } from "../components/container";
 import { MapInfo } from "../components/mapInfo";
+import { AttImages } from "../components/attImages";
 
 const API_KEY = process.env.REACT_APP_API_KEY;
 
@@ -26,6 +27,8 @@ const JobDetail: React.FC = () => {
   const locationUrl = useLocation();
   const navigate = useNavigate();
   const jobItem: any = jobsList.find(({ id }) => id === jobBoardId);
+
+  const availableScreenWidth = window.screen.availWidth;
 
   const handleClick = () => {
     navigate(locationUrl?.state?.from ?? "/");
@@ -49,40 +52,39 @@ const JobDetail: React.FC = () => {
   return (
     <Container>
       <section className="max-w-[774px] bg-white-accent">
-        <Header id={id} />
-        <div className="w-full h-[1px] bg-text-accent opacity-[0.13] mix-blend-normal"></div>
+        <Header id={id} width={availableScreenWidth} />
+        <div className="sm:hidden 2xl:flex w-full h-[1px] bg-text-accent opacity-[0.13] mix-blend-normal"></div>
+        <section className="pt-[39px] pb-[135px]">
+          {availableScreenWidth > 1920 && <Applaybutton email={email} />}
 
-        <main>
-          <section className="pt-[39px]">
-            <Applaybutton email={email} />
-            <Description
-              title={title}
-              salary={salary}
-              postedDate={createdAt}
-              description={description}
-            />
-            <Applaybutton email={email} />
-          </section>
-          <section>
-            <AdditInfo
-              employmentType={employment_type}
-              benefits={benefits}
-              pictures={pictures}
-              title={title}
-            />
-          </section>
-          <button
-            className="mt-[97px] ml-[-89px] mb-[218px] w-[213px] h-[50px] bg-[#384564] bg-opacity-[0.14] flex justify-center items-center text-[] rounded-lg text-applayButton uppercase font-semibold "
-            onClick={handleClick}
-          >
-            <FiChevronLeft />
-            <span className="text-text-accent opacity-[1] z-10">
-              return to job board
-            </span>
-          </button>
-        </main>
+          <Description
+            title={title}
+            salary={salary}
+            postedDate={createdAt}
+            description={description}
+          />
+          <Applaybutton email={email} />
+        </section>
+        <section className="flex flex-col gap-[63px]">
+          <AttImages pictures={pictures} name={name} />
+          <AdditInfo employmentType={employment_type} benefits={benefits} />
+        </section>
+
+        <button
+          className="hidden 2xl:flex justify-center items-center mt-[97px] ml-[-89px] 2xl:mb-[218px] w-[213px] h-[50px] bg-[#384564] bg-opacity-[0.14] text-[] rounded-lg text-applayButton uppercase font-semibold "
+          onClick={handleClick}
+        >
+          <FiChevronLeft />
+          <span className="text-text-accent opacity-[1] z-10">
+            return to job board
+          </span>
+        </button>
       </section>
-      <section className="max-w-{402} ml-20">
+      <section className="max-w-{402} 2xl:ml-20">
+        <h3 className="2xl:hidden text-logo font-bold tracking-0.413333px text-text-accent w-full mb-[9px]">
+          Contact
+        </h3>
+        <div className="2xl:hidden w-full h-[1px] bg-text-accent opacity-[0.13] mix-blend-normal mb-[21px]"></div>
         <div className="relative w-[402px] h-[218px] bg-[#2A3047] overflow-hidden">
           <div className="grid gap-[8px] pt-[31px] pl-[62px] ">
             <MapInfo text={name} isName={true} />

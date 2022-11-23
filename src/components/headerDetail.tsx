@@ -1,4 +1,5 @@
 import { IsFavorite } from "../components/isFavorite";
+
 import { BsFillShareFill } from "react-icons/bs";
 import {
   EmailShareButton,
@@ -18,11 +19,13 @@ import {
   WhatsappShareButton,
   WhatsappIcon,
 } from "react-share";
+import { IsFavoriteMobile } from "./isFavoriteMobile";
 
 interface IProps {
   id: string;
+  width: number;
 }
-export const Header: React.FC<IProps> = ({ id }) => {
+export const Header: React.FC<IProps> = ({ id, width }) => {
   const shareList = document.querySelector("#share");
   const onRemoveHidden = () => {
     shareList?.classList.remove("hidden");
@@ -32,16 +35,17 @@ export const Header: React.FC<IProps> = ({ id }) => {
   };
 
   return (
-    <header className="flex justify-between text-text-accent mb-[9px] ">
+    <header className="2xl:flex 2xl:justify-between text-text-accent mb-[9px] ">
       <h2 className="font-bold text-logo">Job Details</h2>
+      <div className="2xl:hidden mt-[12px] mb-[24px] w-full h-[1px] bg-text-accent opacity-[0.13] mix-blend-normal"></div>
       <div className="flex gap-6">
-        <p className="text-lg flex items-center gap-2 cursor-pointer ">
-          <IsFavorite id={id} />
+        <p className="text-p2 text-lg flex items-center gap-2 cursor-pointer ">
+          {width > 1920 ? <IsFavorite id={id} /> : <IsFavoriteMobile id={id} />}
           Save to my list
         </p>
 
         <p
-          className="relative flex items-center gap-2 cursor-pointer text-lg hover:text-black"
+          className="relative flex items-center gap-2 cursor-pointer text-p2 text-lg hover:text-black"
           onClick={onRemoveHidden}
         >
           <BsFillShareFill fill="#70778B" />
@@ -49,7 +53,7 @@ export const Header: React.FC<IProps> = ({ id }) => {
         </p>
         <div
           id="share"
-          className="hidden absolute top-[50px]"
+          className="hidden absolute top-[100px] 2xl:top-[50px]"
           onClick={onAddHidden}
         >
           <EmailShareButton url="shareUrl">

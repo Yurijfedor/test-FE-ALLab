@@ -7,7 +7,7 @@ export const PostedAt: React.FC<IProps> = ({ createdAt }) => {
   const days = (currentDate - Date.parse(date)) / 86400000;
 
   return (
-    <p className="font-postedAt font-normal text-lg tracking-[-0.5625px] text-postedAt mb-[7px]">{`Posted ${Math.round(
+    <p className="2xl:font-postedAt font-light text-lg tracking-[-0.5625px] text-postedAt text-[14px] leading-[17px] mb-[7px]">{`Posted ${Math.round(
       days
     )} days ago`}</p>
   );

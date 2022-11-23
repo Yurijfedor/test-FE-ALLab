@@ -1,4 +1,4 @@
-import { BsFillBookmarkFill } from "react-icons/bs";
+import { FaStar } from "react-icons/fa";
 
 import { useAppDispatch, useAppSelector } from "../redux/hooks";
 import { toggleFavorite } from "../redux/jobFavoriteSlice";
@@ -7,7 +7,7 @@ interface IProps {
   id: string;
 }
 
-export const IsFavorite: React.FC<IProps> = ({ id }) => {
+export const IsFavoriteMobile: React.FC<IProps> = ({ id }) => {
   const dispatch = useAppDispatch();
   const isFavorite = useAppSelector((state) => state.isFavorite);
 
@@ -20,17 +20,17 @@ export const IsFavorite: React.FC<IProps> = ({ id }) => {
   );
 
   return FavoriteState?.isFavorite === true ? (
-    <BsFillBookmarkFill
+    <FaStar
       fill="yellow"
       stroke="#70778B"
-      strokeWidth="1px"
+      strokeWidth="50px"
       onClick={toggleIsFavoriteState}
     />
   ) : (
-    <BsFillBookmarkFill
+    <FaStar
       fill="white"
       stroke="#70778B"
-      strokeWidth="1px"
+      strokeWidth="50px"
       onClick={toggleIsFavoriteState}
     />
   );

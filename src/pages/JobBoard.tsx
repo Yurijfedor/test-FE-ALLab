@@ -15,10 +15,10 @@ const JobBoard: React.FC = () => {
 
   return (
     <Container>
-      <section className="pt-[29px]">
+      <section className="2xl:pt-[29px] px-[9px] pt-[9px] pb-[17px] mx-auto max-w-[1400px] bg-[#F5F5F5] ">
         {isLoading && <b>Loading jobs...</b>}
         {error && <b>{error}</b>}
-        <JobList jobsList={jobsList} />;
+        <JobList jobsList={jobsList} />
       </section>
     </Container>
   );

@@ -12,7 +12,7 @@ export const JobList: React.FC<Iprops> = ({ jobsList }) => {
         return (
           <li
             key={job.id}
-            className="flex bg-white-accent drop-shadow px-4 py-6 place-content-between"
+            className="flex bg-white-accent drop-shadow 2xl:px-4 px-[8px] 2xl:py-6 py-[13px] place-content-between"
           >
             <JobItem jobInfo={job} />
           </li>
